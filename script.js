@@ -120,3 +120,73 @@ moreMoreDiv.appendChild(moreImg);
 
 // Append section to the document body
 document.body.appendChild(section);
+
+// media querries
+// add more speakers on applying media queries
+function generateSpeakers(numSpeakers) {
+  const speakerContainer = document.querySelector('.speaker-container');
+
+  for (let i = 3; i < numSpeakers; i += 1) {
+    const speaker = document.createElement('div');
+    speaker.classList.add('speaker');
+    speakerContainer.appendChild(speaker);
+
+    const img = document.createElement('img');
+    img.classList.add(`speaker${i + 1}`);
+    img.src = `./images/speaker${i + 1}.png`;
+    img.alt = `Speaker${i + 1}`;
+    speaker.appendChild(img);
+
+    const speakerIntro = document.createElement('div');
+    speakerIntro.classList.add('speaker-intro');
+    speaker.appendChild(speakerIntro);
+
+    const h3 = document.createElement('h3');
+    h3.classList.add('name');
+    h3.textContent = `Speaker ${i + 1}`;
+    speakerIntro.appendChild(h3);
+
+    const intro = document.createElement('p');
+    intro.classList.add('intro');
+    intro.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+    speakerIntro.appendChild(intro);
+
+    const autobio = document.createElement('p');
+    autobio.classList.add('autobio');
+    autobio.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere orci velit, eu aliquam orci iaculis vel. Donec imperdiet mauris vel magna efficitur, vitae lacinia mauris lobortis. Aliquam erat volutpat.';
+    speakerIntro.appendChild(autobio);
+  }
+
+  // Show the third speaker if the screen size is larger than 768px
+  const screenWidth = window.innerWidth;
+  if (screenWidth > 768) {
+    const speaker3 = document.createElement('div');
+    speaker3.classList.add('speaker');
+    speakerContainer.insertBefore(speaker3, speakerContainer.children[2]);
+
+    const img3 = document.createElement('img');
+    img3.classList.add('speaker3');
+    img3.src = './images/speaker3.png';
+    img3.alt = 'Speaker3';
+    speaker3.appendChild(img3);
+
+    const speakerIntro3 = document.createElement('div');
+    speakerIntro3.classList.add('speaker-intro');
+    speaker3.appendChild(speakerIntro3);
+
+    const h8 = document.createElement('h3');
+    h8.classList.add('name');
+    h8.textContent = 'Jane Doe';
+    speakerIntro3.appendChild(h8);
+
+    const intro3 = document.createElement('p');
+    intro3.classList.add('intro');
+    intro3.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+    speakerIntro3.appendChild(intro3);
+  }
+}
+
+// Call the function with 6 speakers when media screen is large
+if (window.matchMedia('(min-width: 768px)').matches) {
+  generateSpeakers(6);
+}
