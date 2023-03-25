@@ -47,8 +47,8 @@ Welcome to the school of Web and Android application Development
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
-- [Online Link](#)
+- [Live Demo Link](https://arnoldnekemiah.github.io/Capstone-project/)
+- [Project Description Video](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
