@@ -13,6 +13,7 @@ header {
 }
 
 .nav {
+  position: relative;
   display: flex;
   justify-content: center;
   margin-left: 20px;
@@ -28,7 +29,53 @@ header {
 }
 
 .newMenu {
+  visibility: hidden;
+  position: fixed;
+  top: -20px;
+  left: 0;
+  opacity: 0.88;
+
+  /* top: 50px; */
+  width: 100vw;
+  height: 100vh;
+  background-color: #3e3e3e;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.showMenu {
+  transform: translateY(0);
+}
+
+.newMenu li {
+  list-style: none;
+}
+
+.newMenu li:hover {
+  font-size: 24px;
+}
+
+.newMenu li a {
+  color: white;
+  text-decoration: none;
+  align-items: flex-start;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.fa-times {
   display: none;
+  margin-left: 250px;
+  position: absolute;
+  top: 20px;
+  left: 120px;
+  color: white;
+  z-index: 2;
 }
 
 .hero {
@@ -36,8 +83,9 @@ header {
   margin-top: -20px;
   height: 486px;
   width: 373px;
-  left: 1px;
-  top: 63px;
+  position: relative;
+  left: 0;
+  top: 20px;
   background-image: url(./images/body-bg.jpeg);
   background-size: contain;
 }
@@ -109,6 +157,8 @@ header {
   background-image: url(./images/program-bg.jpeg);
   background-size: contain;
   opacity: inherit;
+  position: relative;
+  top: 20px;
 }
 
 .main-program {
@@ -342,6 +392,10 @@ header {
     display: none;
   }
 
+  .fa-times {
+    display: none;
+  }
+
   header {
     height: 105px;
     width: 100%;
@@ -398,15 +452,21 @@ header {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: relative;
     gap: 232px;
     width: 1440px;
     height: 75px;
   }
 
   .newMenu {
-    display: block;
+    visibility: visible;
     display: flex;
+    flex-direction: row;
+    gap: 10px;
     align-items: center;
+    background: none;
+    position: absolute;
+    top: -350px;
   }
 
   .newMenu > .list-item > a {
@@ -417,6 +477,7 @@ header {
     font-weight: 800;
     font-size: 14px;
     line-height: 17px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     color: #868686;
@@ -428,6 +489,11 @@ header {
     text-decoration: none;
   }
 
+  .newMenu > .list-item:last-child > div > a {
+    position: absolute;
+    left: 860px;
+  }
+
   .newMenu > .list-item:last-child > div {
     display: flex;
     justify-content: center;
@@ -437,10 +503,15 @@ header {
     border: 5px solid #ec4327;
   }
 
+  .logo {
+    position: absolute;
+    left: 0;
+  }
+
   .hero {
     height: 887px;
     width: 100%;
-    background-image: url(./images/world-wide.jpg);
+    background-image: url(./images/new-bg.jpg);
     opacity: 0.9;
   }
 
@@ -521,6 +592,8 @@ header {
     top: calc(50% - 587px / 2 - 168.5px);
     background: url(./images/program-bg.jpeg), #282b32;
     mix-blend-mode: normal;
+    margin-left: -65px;
+    margin-top: 20px;
   }
 
   .program-container {
@@ -555,9 +628,6 @@ header {
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
-    margin-left: 30px;
-
-    /* or 117% */
     display: flex;
     align-items: center;
     letter-spacing: -0.01em;
@@ -610,17 +680,16 @@ header {
 
   .speaker-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 80px;
     height: 774px;
     width: 1031px;
     position: absolute;
     left: 205px;
     top: 1700px;
-    background-color: red;
   }
 
   .more-div {
@@ -630,5 +699,9 @@ header {
   .speakers {
     height: 923px;
     width: 100%;
+  }
+
+  .top {
+    margin-left: 600px;
   }
 }

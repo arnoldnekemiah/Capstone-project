@@ -143,17 +143,35 @@ function generateSpeakers(numSpeakers) {
 
     const h3 = document.createElement('h3');
     h3.classList.add('name');
-    h3.textContent = `Speaker ${i + 1}`;
+    if (i === 4) {
+      h3.textContent = 'Lila tretikov'; // Assign a different name for the 5th speaker
+    } else if (i === 5) {
+      h3.textContent = 'Ryan Merkley'; // Assign a different name for the 6th speaker
+    } else {
+      h3.textContent = 'Julia Leda'; // Assign a default name for other speakers
+    }
     speakerIntro.appendChild(h3);
 
     const intro = document.createElement('p');
     intro.classList.add('intro');
-    intro.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+    if (i === 4) {
+      intro.textContent = 'Executive Director of the Wikimedia Foundation'; // Assign a different name for the 5th speaker
+    } else if (i === 5) {
+      intro.textContent = 'CEO of Creativve Commons, ex COO of the Mozilla Foundation';
+    } else {
+      intro.textContent = 'President of Young Pirates of Europe';
+    }
     speakerIntro.appendChild(intro);
 
     const autobio = document.createElement('p');
     autobio.classList.add('autobio');
-    autobio.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere orci velit, eu aliquam orci iaculis vel. Donec imperdiet mauris vel magna efficitur, vitae lacinia mauris lobortis. Aliquam erat volutpat.';
+    if (i === 4) {
+      autobio.textContent = 'Lila Tretikov is the Executive of the Wikimedia Foundation, the nonprofit organization that operates Wikipedia. Wikipedia is freely available in 290 languag-es and used by nearly half a billion people around the world every month.';
+    } else if (i === 5) {
+      autobio.textContent = 'Ryan had been leading open-source projects at the Mozilla Foundation such as the open-source move-ment';
+    } else {
+      autobio.textContent = 'European ingetration, political democracy and participation of youth through online as her major condern, Reda’s report outlining potential changes to EU copyright law was approved by the Parliament in July';
+    }
     speakerIntro.appendChild(autobio);
   }
 
@@ -176,17 +194,88 @@ function generateSpeakers(numSpeakers) {
 
     const h8 = document.createElement('h3');
     h8.classList.add('name');
-    h8.textContent = 'Jane Doe';
+    h8.textContent = 'Kilnam Chon';
     speakerIntro3.appendChild(h8);
 
     const intro3 = document.createElement('p');
-    intro3.classList.add('intro');
-    intro3.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+    intro3.classList.add('autobio');
+    intro3.textContent = 'Kilnam Chon helped bring the internet to Asia and is an outspoken advocate for the open web and digital com-mons. In 2012. he was inducted into the inaugural class of the Internet Society’s (ISOC) Internet Hall of Fame';
     speakerIntro3.appendChild(intro3);
   }
 }
 
-// Call the function with 6 speakers when media screen is large
-if (window.matchMedia('(min-width: 768px)').matches) {
-  generateSpeakers(6);
-}
+// call generateSpeakers function for different screen sizes
+const mediaQuery1 = window.matchMedia('(min-width: 768px)');
+const mediaQuery2 = window.matchMedia('(max-width: 768px)');
+
+const handleMediaQuery1 = (mq) => {
+  if (mq.matches) {
+    generateSpeakers(6);
+  }
+};
+
+const handleMediaQuery2 = (mq) => {
+  if (mq.matches) {
+    generateSpeakers(2);
+  }
+};
+
+mediaQuery1.addListener(handleMediaQuery1);
+mediaQuery2.addListener(handleMediaQuery2);
+
+handleMediaQuery1(mediaQuery1);
+handleMediaQuery2(mediaQuery2);
+
+let speakersVisible = false;
+
+const toggleButton = document.querySelector('.more-div');
+const moreImg2 = document.querySelector('#more-img');
+
+toggleButton.addEventListener('click', () => {
+  const speakers = document.querySelectorAll('.speaker:nth-of-type(n+4)');
+  if (speakersVisible) {
+    // Hide additional speakers
+    speakers.forEach((speaker) => {
+      speaker.style.display = 'none';
+    });
+    toggleButton.textContent = 'MORE';
+    moreImg2.src = './images/arrow_down.png';
+  } else {
+    // Show additional speakers
+    speakers.forEach((speaker) => {
+      speaker.style.display = 'block';
+    });
+    toggleButton.textContent = 'LESS';
+    moreImg2.src = './images/arrow_up.png';
+  }
+  speakersVisible = !speakersVisible;
+});
+
+// Humburger menu
+/* menu dropdown codes....... */
+const openHambuger = document.querySelector('.fa-bars');
+const menu = document.querySelector('.newMenu');
+const closeButton = document.querySelector('.fa-times');
+/* open button */
+openHambuger.addEventListener('click', () => {
+  menu.style.visibility = 'visible';
+  openHambuger.style.display = 'none';
+  closeButton.style.display = 'block';
+});
+
+/* clossing button ... */
+closeButton.addEventListener('click', () => {
+  menu.style.display = 'none';
+  openHambuger.style.display = 'block';
+  closeButton.style.display = 'none';
+});
+
+const menuItems = document.querySelectorAll('.menu-item');
+
+menuItems.forEach((item) => {
+  item.addEventListener('click', () => {
+    menu.style.display = 'none';
+    openHambuger.style.display = 'block';
+    closeButton.style.display = 'none';
+  });
+});
