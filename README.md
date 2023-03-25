@@ -47,8 +47,8 @@ Welcome to the school of Web and Android application Development
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](#)
-- [Online Link](#)
+- [Live Demo Link](https://arnoldnekemiah.github.io/Capstone-project/)
+- [Project Description Video](https://www.loom.com/share/a011be84ec1a4320bd3b7f2d8967262c)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,7 +61,7 @@ Welcome to the school of Web and Android application Development
 https://git-scm.com/downloads and install it).
 - Step 2: Once you have installed git you can clone this project using the command below:
   ```
-  git clone https://github.com/arnoldnekemiah/Capstone-project-1/
+  git clone https://github.com/arnoldnekemiah/Capstone-project/
   ```
 - Step 3: Once you have cloned this repo navigate to the folder that contains 
 the repository.
